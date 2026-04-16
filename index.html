@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Kugoo F3 Pro — Мощный электросамокат | Скидка 15%</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f0f5fa 0%, #e6edf2 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 2rem 1rem;
+            color: #1a2c3e;
+        }
+
+        /* карточка товара */
+        .product-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2.5rem;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12), 0 8px 18px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        /* скидочная шапка */
+        .discount-header {
+            background: #dc2626;
+            background-image: radial-gradient(circle at 10% 30%, rgba(255,255,200,0.15) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            padding: 0.9rem 1.5rem;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .discount-header span {
+            background: #ffea80;
+            color: #b91c1c;
+            padding: 5px 18px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,0.05), 0 5px 12px rgba(0,0,0,0.1);
+        }
+        .fire-icon {
+            font-size: 1.7rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        /* основная сетка */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        /* левая колонка — изображение */
+        .product-gallery {
+            flex: 1.2;
+            min-width: 260px;
+            background: #fefaf5;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            box-shadow: inset 0 1px 4px #00000008, 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .product-img {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.12));
+        }
+        .product-img:hover {
+            transform: scale(1.01);
+        }
+
+        /* правая колонка — информация */
+        .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .model-badge {
+            background: #eef2ff;
+            display: inline-block;
+            width: fit-content;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #1e40af;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0f2b3d;
+        }
+
+        .specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 0.5rem 0 0.2rem;
+        }
+        .spec-badge {
+            background: #f1f5f9;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* цены */
+        .price-block {
+            background: #f8fafc;
+            border-radius: 1.8rem;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            border: 1px solid #e2edf2;
+        }
+        .old-price {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #64748b;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #dc2626;
+        }
+        .new-price {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #0f3b2c;
+            background: linear-gradient(135deg, #15803d, #166534);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: #15803d;
+            letter-spacing: -0.5px;
+        }
+        .discount-badge {
+            background: #dc2626;
+            color: white;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            font-size: 1rem;
+        }
+
+        /* кнопка телеграм */
+        .btn-telegram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #1f8a4c;
+            background: linear-gradient(95deg, #26A641 0%, #1f8b4b 100%);
+            border: none;
+            width: 100%;
+            padding: 1.2rem 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 10px 18px -6px rgba(32, 128, 64, 0.4);
+            text-decoration: none;
+            margin-top: 0.6rem;
+        }
+        .btn-telegram:hover {
+            background: linear-gradient(95deg, #2bbd59 0%, #1f8b4b 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 18px 25px -10px rgba(0, 128, 0, 0.4);
+        }
+        .btn-telegram:active {
+            transform: translateY(1px);
+        }
+        .telegram-icon {
+            font-size: 1.9rem;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        .features-list li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        .check {
+            color: #1f8a4c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        hr {
+            margin: 0.5rem 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .delivery-info {
+            background: #fefce8;
+            padding: 0.9rem 1.2rem;
+            border-radius: 1.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #854d0e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+            border-top: 1px solid #eef2f8;
+            background: #ffffff;
+        }
+
+        @media (max-width: 780px) {
+            .product-grid {
+                padding: 1.5rem;
+                gap: 1.2rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .new-price {
+                font-size: 1.9rem;
+            }
+            .old-price {
+                font-size: 1.2rem;
+            }
+            .btn-telegram {
+                font-size: 1.3rem;
+                padding: 1rem;
+            }
+            .discount-header {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .price-block {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .discount-header span {
+                font-size: 1rem;
+                padding: 3px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="product-container">
+    <!-- шапка скидки (акцент) -->
+    <div class="discount-header">
+        <div class="fire-icon">🔥🔥🔥</div>
+        <span>СУПЕР СКИДКА!</span>
+        <div class="fire-icon">⚡️</div>
+    </div>
+
+    <div class="product-grid">
+        <!-- левая часть: фото -->
+        <div class="product-gallery">
+            <img class="product-img" 
+                 src="https://нова.бел/assets/cache/images/catalog/1_samokat/kugoo/f3pro/kugoo_f3_pro_6-666x666-83e.jpg" 
+                 alt="Kugoo F3 Pro электросамокат" 
+                 onerror="this.onerror=null; this.src='https://via.placeholder.com/666x666?text=Kugoo+F3+Pro';">
+        </div>
+
+        <!-- правая часть: описание, цена, кнопка -->
+        <div class="product-info">
+            <div class="model-badge">🏆 ХИТ ПРОДАЖ 2025</div>
+            <h1>Kugoo F3 Pro <span style="font-weight:600; font-size:1.3rem;">⚡️</span></h1>
+            <div class="specs">
+                <div class="spec-badge">🔋 48V 20Ah</div>
+                <div class="spec-badge">💨 до 55 км/ч</div>
+                <div class="spec-badge">🛞 10" пневмошины</div>
+                <div class="spec-badge">🔦 LED фары</div>
+            </div>
+
+            <!-- блок цен: старая / новая -->
+            <div class="price-block">
+                <div>
+                    <div class="old-price">3 000 BYN</div>
+                    <div class="new-price"><strong>2 599 BYN</strong></div>
+                </div>
+                <div class="discount-badge">−15% ЭКОНОМИЯ 401 BYN</div>
+            </div>
+
+            <!-- важные преимущества -->
+            <ul class="features-list">
+                <li><span class="check">✓</span> Двойной подвес — комфорт на любых дорогах</li>
+                <li><span class="check">✓</span> Запас хода до 65 км (реальный тест)</li>
+                <li><span class="check">✓</span> Складная рама — удобно в транспорте</li>
+                <li><span class="check">✓</span> Мощность 1000W (пик 1600W)</li>
+            </ul>
+
+            <hr>
+
+            <!-- доставка и гарантия -->
+            <div class="delivery-info">
+                <span>🚚</span> Доставка по Минску и всей Беларуси за 1-2 дня • Гарантия 12 мес.
+            </div>
+
+            <!-- КНОПКА КУПИТЬ ➜ Telegram -->
+            <a href="https://t.me/yxo42" target="_blank" rel="noopener noreferrer" class="btn-telegram">
+                <span class="telegram-icon">📱</span> КУПИТЬ СЕЙЧАС
+                <span style="font-size:1rem;">→</span>
+            </a>
+            <div style="font-size:0.8rem; text-align:center; margin-top: -0.3rem; color:#2c6e3c;">
+                Нажмите, чтобы перейти в Telegram и оформить заказ
+            </div>
+            <div style="font-size:0.75rem; text-align:center; margin-top: 8px; color:#5a687c;">
+                🔒 Безопасная сделка, быстрая обратная связь в ТГ
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        ⚡ Kugoo F3 Pro — максимальная мощность и стиль. Цена действует ограниченное время!<br>
+        * Актуально на сегодня: 2599 BYN вместо 3000 BYN.
+    </footer>
+</div>
+
+<!-- небольшой скрипт для фиксации клика (доп. аналитика не требуется, но ссылка уже ведет в Telegram) -->
+<script>
+    // Можно добавить дополнительную обработку, но основная работа через href
+    // Просто убедимся что кнопка не блокируется и пользователь перенаправляется корректно.
+    // Все ссылки telegram защищены от некорректного поведения.
+    console.log("Страница Kugoo F3 Pro загружена | Скидка до 2599 BYN | Telegram: t.me/yxo42");
+    // Небольшой фикс для мобильных: при клике открывается в новой вкладке через target="_blank"
+    // Уже прописано выше.
+</script>
+</body>
+</html>
